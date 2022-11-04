@@ -1,4 +1,4 @@
-package echec;
+package modele;
 
 
 public class Position {
@@ -61,7 +61,7 @@ public class Position {
 
 
 	@Override
-	protected Position clone() {
+	public Position clone() {
 		Position temp =new Position(this.getX(),this.getY());
 		
 		

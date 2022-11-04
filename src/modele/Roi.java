@@ -1,14 +1,46 @@
-package echec;
+package modele;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Roi extends Piece implements Mouvement{
+import echec.Couleur;
+
+public class Roi extends Piece{
 	public static List <Roi> tabRoi=new ArrayList<Roi>();
-	boolean echec=false;
-	boolean echecEtMat=false;
-	boolean echecEtPat=false;
-	boolean premierTour=true;
+	private boolean echec=false;
+	private boolean echecEtMat=false;
+	private boolean echecEtPat=false;
+	private boolean premierTour=true;
+
+	public boolean isEchecEtPat() {
+		return echecEtPat;
+	}
+
+
+	public void setEchecEtPat(boolean echecEtPat) {
+		this.echecEtPat = echecEtPat;
+	}
+
+
+	public boolean isPremierTour() {
+		return premierTour;
+	}
+
+
+	public void setPremierTour(boolean premierTour) {
+		this.premierTour = premierTour;
+	}
+
+
+	public void setEchec(boolean echec) {
+		this.echec = echec;
+	}
+
+
+	public void setEchecEtMat(boolean echecEtMat) {
+		this.echecEtMat = echecEtMat;
+	}
+
 
 	public Roi(int x, int y, Couleur c) {
 		super(x, y, c);
@@ -80,7 +112,7 @@ public class Roi extends Piece implements Mouvement{
 	}
 
 
-	String update()
+	public String update()
 	{
 		String result="";
 		List<Position> tempTab;
@@ -120,7 +152,7 @@ public class Roi extends Piece implements Mouvement{
 		return result;
 	}
 
-	static Roi getRoiCouleur(Couleur c)
+	public static Roi getRoiCouleur(Couleur c)
 	{
 		for (Roi r:Roi.tabRoi) {
 			if (r.couleur.equals(c))

@@ -1,6 +1,11 @@
 package echec;
 
 import java.util.List;
+
+import modele.Piece;
+import modele.Position;
+import modele.Roi;
+
 import java.util.ArrayList;
 
 public class Joueur{
@@ -27,13 +32,13 @@ public class Joueur{
 		if (couleur.equals(Couleur.BLACK))
 		{
 			tab=Piece.getBlackPiece();
-			couleurEnnemie=Couleur.BLACK;
+			couleurEnnemie=Couleur.WHITE;
 			
 		}
 		 else
 		 {
 			 tab=Piece.getWhitePiece();		 
-			 couleurEnnemie=Couleur.WHITE;
+			 couleurEnnemie=Couleur.BLACK;
 
 		 }
 

@@ -1,6 +1,8 @@
-package echec;
+package modele;
 import java.util.*;
-public class Cavalier  extends Piece implements Mouvement {
+
+import echec.Couleur;
+public class Cavalier  extends Piece{
 
 	public Cavalier(int x, int y, Couleur c) {
 		super(x, y, c);

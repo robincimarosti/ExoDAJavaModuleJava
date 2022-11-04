@@ -1,6 +1,9 @@
 package echec;
 import java.util.*;
 
+import modele.Piece;
+import modele.Position;
+
 public class Echiquier {
 	
 	ArrayList<Case> tabCase= new ArrayList<Case>();		//case rang� par x puis y
@@ -55,22 +58,22 @@ public class Echiquier {
 
 				
 					switch(p.getClass().getSimpleName()) {
-						case "Rider" :
+						case "Cavalier" :
 							System.out.print("C"+coul);
 							break;
-						case "Queen" :
+						case "Reine" :
 							System.out.print("D"+coul);
 							break;
-						case "Fool" :
+						case "Fou" :
 							System.out.print("F"+coul);
 							break;
-						case "Peon" :
+						case "Pion" :
 							System.out.print("P"+coul);
 							break;
-						case "King" :
+						case "Roi" :
 							System.out.print("R"+coul);
 							break;
-						case "Castle" :
+						case "Tour" :
 							System.out.print("T"+coul);
 							break;
 					}

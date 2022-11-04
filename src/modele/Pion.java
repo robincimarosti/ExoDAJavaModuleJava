@@ -1,8 +1,10 @@
-package echec;
+package modele;
 
 import java.util.*;
 
-public class Pion extends Piece implements Mouvement {
+import echec.Couleur;
+
+public class Pion extends Piece{
 
 
 	public boolean _1erTour;

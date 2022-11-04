@@ -1,4 +1,4 @@
-package echec;
+package modele;
 
 import java.util.List;
 

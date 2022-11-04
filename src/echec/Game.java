@@ -2,6 +2,15 @@ package echec;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import modele.Cavalier;
+import modele.Fou;
+import modele.Piece;
+import modele.Pion;
+import modele.Position;
+import modele.Reine;
+import modele.Roi;
+import modele.Tour;
+
 public class Game {
 	private Joueur joueurActuel;
 	private int numTour=1;
@@ -11,8 +20,14 @@ public class Game {
 
 	boolean over;
 
-	public Game(String n1,String n2)
+	public Game()
 	{
+		System.out.println("Joueur 1 veuillez donner votre prénom");
+		String n1 = entree.nextLine();
+		
+		System.out.println("Joueur 2 veuillez donner votre prénom");
+		String n2 = entree.nextLine();
+		
 		Joueur j1=new Joueur (n1,Couleur.WHITE);
 		Joueur j2=new Joueur (n2,Couleur.BLACK);
 
@@ -107,12 +122,12 @@ public class Game {
 		Tour t3=new Tour(1,1,Couleur.WHITE);
 		Tour t4=new Tour(8,1,Couleur.WHITE);
 		
-			Cavalier C1=new Cavalier(2,8,Couleur.BLACK);
+			Cavalier c1=new Cavalier(2,8,Couleur.BLACK);
 			Cavalier c2=new Cavalier(7,8,Couleur.BLACK);
 			Cavalier c3=new Cavalier(2,1,Couleur.WHITE);
 			Cavalier c4=new Cavalier(7,1,Couleur.WHITE);
 
-		Fou F1=new Fou(3,8,Couleur.BLACK);
+		Fou f1=new Fou(3,8,Couleur.BLACK);
 		Fou f2=new Fou(6,8,Couleur.BLACK);
 		Fou f3=new Fou(3,1,Couleur.WHITE);
 		Fou f4=new Fou(6,1,Couleur.WHITE);
@@ -170,7 +185,7 @@ public class Game {
 				joueurActuel=this.listeJoueurs.get(1);
 
 
-			System.out.println("C'est au "+joueurActuel.getNom()+" de jouer");
+			System.out.println("C'est a "+joueurActuel.getNom()+" de jouer");
 			jouer(joueurActuel);
 		}
 		else
@@ -273,12 +288,12 @@ public class Game {
 
 
 			Couleur coul=count.getCouleur();
-			if(count.echec && !count.echecEtMat)
+			if(count.isEchec() && !count.isEchecEtMat())
 				System.out.println("Le roi "+count.getCouleur()+ " est en echec");
-			else if (count.echec && count.echecEtMat || count.echecEtPat)
+			else if (count.isEchec() && count.isEchecEtMat() || count.isEchecEtPat())
 			{
 					over=true;
-					System.out.println("Le roi "+count.couleur+" est en "+t+"\n");
+					System.out.println("Le roi "+count.getCouleur()+" est en "+t+"\n");
 					if (coul.equals(Couleur.WHITE))
 						System.out.print("Le joueur "+this.listeJoueurs.get(0));
 					else
